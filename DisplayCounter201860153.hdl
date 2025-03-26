@@ -3,13 +3,25 @@ CHIP DisplayCounter201860153 {
     OUT a, b, c, d, e, f, g;
 
     PARTS:
+    // 计数器寄存器：保持当前值
     Register(in=nextCount, load=inc, out=currentCount);
+
+    // 增加计数
     Inc16(in=currentCount, out=incremented);
+
+    // 全0输出
     False16(out=zero);
+
+    // 根据 reset 决定是否清零
     Mux16(a=incremented, b=zero, sel=reset, out=nextCount);
+
+    // 显式提取 counter 的低4位
     And(a=currentCount[0], b=true, out=bit0);
     And(a=currentCount[1], b=true, out=bit1);
     And(a=currentCount[2], b=true, out=bit2);
     And(a=currentCount[3], b=true, out=bit3);
-    DecoderSegment(in[0]=bit0, in[1]=bit1, in[2]=bit2, in[3]=bit3, outA=a, outB=b, outC=c, outD=d, outE=e, outF=f, outG=g);
+
+    // 传入 7 段译码器
+    DecoderSegment(in[0]=bit0, in[1]=bit1, in[2]=bit2, in[3]=bit3,
+                   outA=a, outB=b, outC=c, outD=d, outE=e, outF=f, outG=g);
 }
