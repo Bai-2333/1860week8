@@ -1,0 +1,7 @@
+CHIP False {
+    OUT out;
+
+    PARTS:
+    // Any input is fine, we just hard-code output to 0 using Nand
+    Nand(a=true, b=true, out=out);
+}
