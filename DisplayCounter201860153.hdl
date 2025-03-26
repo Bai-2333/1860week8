@@ -3,13 +3,13 @@ CHIP DisplayCounter201860153 {
     OUT a, b, c, d, e, f, g;
 
     PARTS:
-    Inc16(in=currentCount, out=nextCount);
-    Mux16(a=nextCount, b=false[16], sel=reset, out=counter);
-    DecoderSegment(in=countex[0..3], out=a);
-    DecoderSegment(in=countex[0..3], out=b);
-    DecoderSegment(in=countex[0..3], out=c);
-    DecoderSegment(in=countex[0..3], out=d);
-    DecoderSegment(in=countex[0..3], out=e);
-    DecoderSegment(in=countex[0..3], out=f);
-    DecoderSegment(in=countex[0..3], out=g);
+    Register(in=nextCount, load=inc, out=currentCount);
+    Inc16(in=currentCount, out=incremented);
+    False16(out=zero);
+    Mux16(a=incremented, b=zero, sel=reset, out=nextCount);
+    And(a=currentCount[0], b=true, out=bit0);
+    And(a=currentCount[1], b=true, out=bit1);
+    And(a=currentCount[2], b=true, out=bit2);
+    And(a=currentCount[3], b=true, out=bit3);
+    DecoderSegment(in[0]=bit0, in[1]=bit1, in[2]=bit2, in[3]=bit3, outA=a, outB=b, outC=c, outD=d, outE=e, outF=f, outG=g);
 }
