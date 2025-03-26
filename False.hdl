@@ -1,4 +1,4 @@
-CHIP False16 {
+CHIP False {
     OUT out[16];
 
     PARTS:
