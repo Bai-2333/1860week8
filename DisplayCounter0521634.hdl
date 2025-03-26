@@ -1,0 +1,15 @@
+CHIP Decoder0521634 {
+    IN inc, reset;
+    OUT a, b, c, d, e, f, g;
+
+    PARTS:
+    Inc16(in=currentCount, out=nextCount);
+    Mux16(a=nextCount, b=false[16], sel=reset, out=counter);
+    DecoderSegment(in=countex[0..3], out=a);
+    DecoderSegment(in=countex[0..3], out=b);
+    DecoderSegment(in=countex[0..3], out=c);
+    DecoderSegment(in=countex[0..3], out=d);
+    DecoderSegment(in=countex[0..3], out=e);
+    DecoderSegment(in=countex[0..3], out=f);
+    DecoderSegment(in=countex[0..3], out=g);
+}
