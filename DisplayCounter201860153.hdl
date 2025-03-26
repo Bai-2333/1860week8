@@ -5,7 +5,7 @@ CHIP DisplayCounter201860153 {
     PARTS:
     Inc16(in=currentCount, out=nextCount);
     False16(out=zero);
-    Mux16(a=nextCount, b=false[16], sel=reset, out=counter);
+    Mux16(a=nextCount, b=zero, sel=reset, out=counter);
     DecoderSegment(in=countex[0..3], out=a);
     DecoderSegment(in=countex[0..3], out=b);
     DecoderSegment(in=countex[0..3], out=c);
