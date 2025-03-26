@@ -1,4 +1,4 @@
-CHIP DecoderCounter201860153 {
+CHIP DisplayCounter201860153 {
     IN inc, reset;
     OUT a, b, c, d, e, f, g;
 
