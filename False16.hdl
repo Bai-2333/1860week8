@@ -1,0 +1,21 @@
+CHIP False16 {
+    OUT out[16];
+
+    PARTS:
+    False(out=out[0]);
+    False(out=out[1]);
+    False(out=out[2]);
+    False(out=out[3]);
+    False(out=out[4]);
+    False(out=out[5]);
+    False(out=out[6]);
+    False(out=out[7]);
+    False(out=out[8]);
+    False(out=out[9]);
+    False(out=out[10]);
+    False(out=out[11]);
+    False(out=out[12]);
+    False(out=out[13]);
+    False(out=out[14]);
+    False(out=out[15]);
+}

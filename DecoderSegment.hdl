@@ -1,0 +1,13 @@
+CHIP DecoderSegment {
+    IN in[4];
+    OUT outA, outB, outC, outD, outE, outF, outG;
+
+    PARTS:
+    SegmentA(A=in[3], B=in[2], C=in[1], D=in[0], out=outA);
+    SegmentB(A=in[3], B=in[2], C=in[1], D=in[0], out=outB);
+    SegmentC(A=in[3], B=in[2], C=in[1], D=in[0], out=outC);
+    SegmentD(A=in[3], B=in[2], C=in[1], D=in[0], out=outD);
+    SegmentE(A=in[3], B=in[2], C=in[1], D=in[0], out=outE);
+    SegmentF(A=in[3], B=in[2], C=in[1], D=in[0], out=outF);
+    SegmentG(A=in[3], B=in[2], C=in[1], D=in[0], out=outG);
+}

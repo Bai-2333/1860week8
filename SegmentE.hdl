@@ -1,0 +1,8 @@
+CHIP SegmentE {
+    IN A, B, C, D;
+    OUT out;
+
+    PARTS:
+    Not(in=A, out=notA);
+    And(a=notA, b=D, out=out);
+}

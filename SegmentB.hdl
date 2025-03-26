@@ -1,0 +1,8 @@
+CHIP SegmentB {
+    IN A, B, C, D;
+    OUT out;
+
+    PARTS:
+    Or(a=A, b=C, out=or1);
+    And(a=B, b=or1, out=out);
+}
